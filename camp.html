@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Camp Cedarbrook</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --pine:    #2d4a35;
+            --moss:    #4a7c59;
+            --sage:    #8fad91;
+            --gold:    #c8973a;
+            --cream:   #faf7f2;
+            --warm-wh: #ffffff;
+            --text:    #2a2a2a;
+            --muted:   #6b7280;
+            --border:  #e5ded4;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ── NAV ── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--pine);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.25);
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--warm-wh);
+            font-size: 1.25rem;
+            letter-spacing: .02em;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            text-decoration: none;
+        }
+        .nav-logo .cross { color: var(--gold); font-size: 1.1rem; }
+        nav a {
+            color: rgba(255,255,255,.8);
+            text-decoration: none;
+            font-size: .85rem;
+            font-weight: 500;
+            margin-left: 1.75rem;
+            letter-spacing: .03em;
+            transition: color .2s;
+        }
+        nav a:hover, nav a.active { color: var(--gold); }
+        .nav-cta {
+            background: var(--gold);
+            color: #fff !important;
+            padding: .45rem 1.1rem;
+            border-radius: 20px;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover { background: #b5842e; color: #fff !important; }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background:
+                linear-gradient(to bottom, rgba(20,40,25,.55) 0%, rgba(20,40,25,.45) 100%),
+                /* layered stripes simulating a forest photo */
+                repeating-linear-gradient(
+                    92deg,
+                    #1e3a22 0px, #2d4a35 14px, #3a5e40 28px,
+                    #294030 42px, #1e3a22 56px
+                );
+            background-size: cover;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 80px;
+            background: linear-gradient(to top, var(--cream), transparent);
+        }
+        .hero-inner { position: relative; z-index: 1; padding: 3rem 1.5rem; max-width: 680px; }
+        .hero-eyebrow {
+            display: inline-block;
+            background: var(--gold);
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            padding: .3rem .9rem;
+            border-radius: 12px;
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            color: rgba(255,255,255,.88);
+            font-size: 1.05rem;
+            font-weight: 300;
+            max-width: 520px;
+            margin: 0 auto 2rem;
+        }
+        .hero-verse {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            color: rgba(255,255,255,.7);
+            font-style: italic;
+            font-size: .85rem;
+        }
+        .hero-verse::before, .hero-verse::after {
+            content: '—';
+            color: var(--gold);
+        }
+
+        /* ── SECTION SHELL ── */
+        section { padding: 5rem 1.5rem; }
+        .container { max-width: 1040px; margin: 0 auto; }
+        .section-label {
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: .6rem;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: var(--pine);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .section-body {
+            color: var(--muted);
+            font-size: .975rem;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        /* ── MISSION STRIP ── */
+        .mission-strip {
+            background: var(--pine);
+            padding: 3.5rem 1.5rem;
+            text-align: center;
+        }
+        .mission-strip blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.35rem, 3vw, 1.9rem);
+            color: #fff;
+            font-style: italic;
+            max-width: 760px;
+            margin: 0 auto 1rem;
+            line-height: 1.5;
+        }
+        .mission-strip cite {
+            font-family: 'Inter', sans-serif;
+            font-size: .8rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        /* ── OUR STORY ── */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .story-image-wrap {
+            position: relative;
+        }
+        .story-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            background:
+                linear-gradient(135deg, rgba(45,74,53,.3) 0%, rgba(200,151,58,.15) 100%),
+                repeating-linear-gradient(
+                    45deg,
+                    #3a5e40 0px, #2d4a35 20px, #4a7c59 40px, #2d4a35 60px
+                );
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+        .story-image-caption {
+            font-size: .75rem;
+            color: rgba(255,255,255,.7);
+            font-style: italic;
+        }
+        .story-badge {
+            position: absolute;
+            bottom: -1.25rem;
+            right: -1.25rem;
+            background: var(--gold);
+            color: #fff;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            line-height: 1.2;
+            font-size: .75rem;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(200,151,58,.4);
+        }
+        .story-badge .year { font-size: 1.5rem; }
+
+        /* ── VALUES ── */
+        .values-section { background: var(--warm-wh); }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .value-card {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            transition: box-shadow .2s, transform .2s;
+        }
+        .value-card:hover {
+            box-shadow: 0 8px 24px rgba(45,74,53,.1);
+            transform: translateY(-3px);
+        }
+        .value-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--pine);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.1rem;
+        }
+        .value-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--pine);
+            margin-bottom: .5rem;
+        }
+        .value-card p { font-size: .875rem; color: var(--muted); line-height: 1.7; }
+
+        /* ── TEAM ── */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .team-card {
+            text-align: center;
+        }
+        .team-avatar {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--sage), var(--moss));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            max-width: 140px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .team-avatar.alt { background: linear-gradient(135deg, var(--gold), #b5842e); }
+        .team-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--pine);
+            margin-bottom: .2rem;
+        }
+        .team-role {
+            font-size: .78rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: .5rem;
+        }
+        .team-bio { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+
+        /* ── STATS STRIP ── */
+        .stats-strip {
+            background: linear-gradient(135deg, var(--pine) 0%, #1a2e1e 100%);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: .4rem;
+        }
+        .stat-label {
+            font-size: .78rem;
+            color: rgba(255,255,255,.65);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 1.5rem;
+            background: var(--cream);
+        }
+        .cta-section .section-title { margin-bottom: 1rem; }
+        .cta-section .section-body { margin: 0 auto 2.5rem; text-align: center; }
+        .btn {
+            display: inline-block;
+            padding: .85rem 2.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: .9rem;
+            text-decoration: none;
+            transition: all .2s;
+            letter-spacing: .03em;
+        }
+        .btn-primary { background: var(--pine); color: #fff; margin-right: .75rem; }
+        .btn-primary:hover { background: var(--moss); }
+        .btn-outline { border: 2px solid var(--pine); color: var(--pine); }
+        .btn-outline:hover { background: var(--pine); color: #fff; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #1a2e1e;
+            color: rgba(255,255,255,.6);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-size: .8rem;
+        }
+        footer .footer-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-bottom: .6rem;
+        }
+        footer a { color: rgba(255,255,255,.5); text-decoration: none; margin: 0 .75rem; }
+        footer a:hover { color: var(--gold); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .story-grid { grid-template-columns: 1fr; }
+            .story-image-wrap { display: none; }
+            .values-grid { grid-template-columns: 1fr 1fr; }
+            .team-grid { grid-template-columns: 1fr 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            nav { display: none; }
+        }
+        @media (max-width: 480px) {
+            .values-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+    <a class="nav-logo" href="#">
+        <span class="cross">✝</span> Camp Cedarbrook
+    </a>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#" class="active">About</a>
+        <a href="#">Programs</a>
+        <a href="#">Staff</a>
+        <a href="#">Gallery</a>
+        <a href="#register" class="nav-cta">Register Now</a>
+    </nav>
+</header>
+
+<!-- ── HERO ── -->
+<div class="hero">
+    <div class="hero-inner">
+        <span class="hero-eyebrow">About Us</span>
+        <h1>Rooted in Faith,<br>Alive in Community</h1>
+        <p>Nestled in the foothills of the Cascades, Camp Cedarbrook has been forming young people in faith, friendship, and purpose since 1987.</p>
+        <span class="hero-verse">As iron sharpens iron, so one person sharpens another. — Proverbs 27:17</span>
+    </div>
+</div>
+
+<!-- ── MISSION STRIP ── -->
+<div class="mission-strip">
+    <blockquote>"To create a space where young people encounter the living God, discover their truest selves, and are sent back into the world on fire."</blockquote>
+    <cite>Our Mission</cite>
+</div>
+
+<!-- ── OUR STORY ── -->
+<section>
+    <div class="container">
+        <div class="story-grid">
+            <div>
+                <p class="section-label">Our Story</p>
+                <h2 class="section-title">From a Borrowed Cabin to 40 Acres of Sacred Ground</h2>
+                <p class="section-body">
+                    Camp Cedarbrook began with a folding table, twelve teenagers, and a borrowed cabin on the Santiam River. Pastor Ruth Osei and youth director Marcus Webb believed that something irreplaceable happens when young people step away from the noise — when they sit around a fire, sing badly, ask hard questions, and find that they are not alone.
+                </p>
+                <br>
+                <p class="section-body">
+                    Nearly four decades later, that conviction hasn't changed. We've grown to a 40-acre property with eight lodges, a climbing wall, a dock, and a dining hall that seats 200 — but the heart of camp is still a circle of chairs, an honest conversation, and the belief that every camper is known and beloved.
+                </p>
+            </div>
+            <div class="story-image-wrap">
+                <div class="story-image">
+                    <span class="story-image-caption">The original Cedarbrook lodge, ca. 1989</span>
+                </div>
+                <div class="story-badge">
+                    <span class="year">37</span>
+                    years of<br>ministry
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── VALUES ── -->
+<section class="values-section">
+    <div class="container">
+        <p class="section-label">What We Believe</p>
+        <h2 class="section-title">The Values That Shape Everything We Do</h2>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">✝</div>
+                <h3>Grounded in Scripture</h3>
+                <p>Every program, conversation, and campfire is shaped by the story of a God who pursues and redeems. We take the text seriously — and we take campers' questions just as seriously.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌲</div>
+                <h3>Creation as Classroom</h3>
+                <p>The woods have always been a place of encounter. We believe getting outside — off screens, into rivers and trees — is itself a spiritual practice, not just a nice add-on.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Radical Welcome</h3>
+                <p>Cedarbrook is a place where every camper belongs before they've done a single thing to earn it. We work hard to build a community that reflects the breadth of Christ's welcome.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🔥</div>
+                <h3>Honest Faith</h3>
+                <p>We have no interest in a faith that only holds up when life is easy. We make room for doubt, grief, and hard questions — because we believe those are the doorways to deeper belief.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌱</div>
+                <h3>Whole-Person Formation</h3>
+                <p>Discipleship isn't only about Sunday mornings. We invest in body, mind, and spirit — through challenge courses, creative arts, service projects, and reflective practice.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🏕️</div>
+                <h3>The Long Game</h3>
+                <p>A week at camp isn't the destination — it's a catalyst. We partner with churches and families to make sure what starts at Cedarbrook keeps growing back home.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-strip">
+    <div class="stats-grid">
+        <div>
+            <div class="stat-num">1,200+</div>
+            <div class="stat-label">Campers Each Summer</div>
+        </div>
+        <div>
+            <div class="stat-num">140</div>
+            <div class="stat-label">Summer Staff</div>
+        </div>
+        <div>
+            <div class="stat-num">37</div>
+            <div class="stat-label">Years of Ministry</div>
+        </div>
+        <div>
+            <div class="stat-num">40</div>
+            <div class="stat-label">Acres of Forest</div>
+        </div>
+    </div>
+</div>
+
+<!-- ── TEAM ── -->
+<section>
+    <div class="container">
+        <p class="section-label">Our Leadership</p>
+        <h2 class="section-title">The People Behind the Ministry</h2>
+        <p class="section-body">Our full-time staff bring decades of combined experience in youth ministry, outdoor education, and pastoral care.</p>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">RO</div>
+                <div class="team-name">Rev. Ruth Osei</div>
+                <div class="team-role">Executive Director</div>
+                <p class="team-bio">Ruth co-founded Cedarbrook in 1987. She holds a D.Min from Fuller Seminary and is an ordained minister in the PCUSA. She still leads cabin devotions every Thursday night.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar alt">MW</div>
+                <div class="team-name">Marcus Webb</div>
+                <div class="team-role">Program Director</div>
+                <p class="team-bio">Marcus oversees all summer programming and staff training. He spent eight years leading urban youth ministry in Portland before joining Cedarbrook full-time.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">JL</div>
+                <div class="team-name">Jess Lindqvist</div>
+                <div class="team-role">Spiritual Formation</div>
+                <p class="team-bio">Jess designs the teaching curriculum and trains small-group leaders. She is a graduate of Regent College and an avid backcountry skier.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar alt">DM</div>
+                <div class="team-name">David Muñoz</div>
+                <div class="team-role">Outdoor Education</div>
+                <p class="team-bio">David is a Wilderness First Responder and Leave No Trace Master Educator. He manages all adventure programming and keeps the climbing wall from falling down.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="register">
+    <div class="container">
+        <p class="section-label">Summer 2025</p>
+        <h2 class="section-title">Ready to Find Your People?</h2>
+        <p class="section-body">Sessions run June 15 – August 10. Spots fill quickly. Financial assistance is available — no one is turned away for inability to pay.</p>
+        <a href="#" class="btn btn-primary">Register for Summer 2025</a>
+        <a href="#" class="btn btn-outline">Contact Us</a>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-logo">✝ Camp Cedarbrook</div>
+    <p style="margin-bottom:.75rem;">22400 Cedarbrook Road · Gates, OR 97346 · (503) 555-0142</p>
+    <div>
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Donate</a>
+        <a href="#">Staff Portal</a>
+    </div>
+    <p style="margin-top:1.25rem; font-size:.72rem;">© 2025 Camp Cedarbrook Ministries. A registered 501(c)(3) nonprofit.</p>
+</footer>
+
+</body>
+</html>
