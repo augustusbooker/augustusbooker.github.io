@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — Camp Cedarbrook</title>
+    <title>About — Soldiers of the Cross Training Institute</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -242,6 +242,12 @@
         .values-section { background: var(--warm-wh); }
         .values-grid {
             display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .values-grid-3 {
+            display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 3rem;
@@ -328,9 +334,9 @@
         }
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            max-width: 800px;
+            max-width: 500px;
             margin: 0 auto;
         }
         .stat-num {
@@ -391,14 +397,13 @@
         @media (max-width: 768px) {
             .story-grid { grid-template-columns: 1fr; }
             .story-image-wrap { display: none; }
-            .values-grid { grid-template-columns: 1fr 1fr; }
-            .team-grid { grid-template-columns: 1fr 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .values-grid-3 { grid-template-columns: 1fr 1fr; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
             nav { display: none; }
         }
         @media (max-width: 480px) {
-            .values-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .values-grid-3 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -407,7 +412,7 @@
 <!-- ── HEADER ── -->
 <header>
     <a class="nav-logo" href="#">
-        <span class="cross">✝</span> Camp Cedarbrook
+        <span class="cross">✝</span> Soldiers of the Cross Training Institute
     </a>
     <nav>
         <a href="#">Home</a>
@@ -423,15 +428,15 @@
 <div class="hero">
     <div class="hero-inner">
         <span class="hero-eyebrow">About Us</span>
-        <h1>Rooted in Faith,<br>Alive in Community</h1>
-        <p>Nestled in the foothills of the Cascades, Camp Cedarbrook has been forming young people in faith, friendship, and purpose since 1987.</p>
-        <span class="hero-verse">As iron sharpens iron, so one person sharpens another. — Proverbs 27:17</span>
+        <h1>Up with Americanism,<br>Down with Communism</h1>
+        <p>Nestled in the Rocky Mountains, the Soldiers of the Cross Training Institute has been forming young people in faith, friendship, and purpose since 1950.</p>
+        <span class="hero-verse">There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female: for ye are all one in Christ Jesus. — Galatians 3:28</span>
     </div>
 </div>
 
 <!-- ── MISSION STRIP ── -->
 <div class="mission-strip">
-    <blockquote>"To create a space where young people encounter the living God, discover their truest selves, and are sent back into the world on fire."</blockquote>
+    <blockquote>To equip young Americans with the tools they need to defend Christianity and strike down Communism.</blockquote>
     <cite>Our Mission</cite>
 </div>
 
@@ -441,21 +446,26 @@
         <div class="story-grid">
             <div>
                 <p class="section-label">Our Story</p>
-                <h2 class="section-title">From a Borrowed Cabin to 40 Acres of Sacred Ground</h2>
+                <h2 class="section-title">From a Madman's Retreat to an Anti-Communist Beacon</h2>
                 <p class="section-body">
-                    Camp Cedarbrook began with a folding table, twelve teenagers, and a borrowed cabin on the Santiam River. Pastor Ruth Osei and youth director Marcus Webb believed that something irreplaceable happens when young people step away from the noise — when they sit around a fire, sing badly, ask hard questions, and find that they are not alone.
+                    The Institute was founded in 1950 by Rev. Kenneth Goff, a former communist and present-day fighter for freedom and God. Goff was labeled a "borderline psychopath" for his anti-communist advocacy, and had suffered bodily injury, but still stood up for what's right by starting a cause he believed in.
                 </p>
                 <br>
                 <p class="section-body">
-                    Nearly four decades later, that conviction hasn't changed. We've grown to a 40-acre property with eight lodges, a climbing wall, a dock, and a dining hall that seats 200 — but the heart of camp is still a circle of chairs, an honest conversation, and the belief that every camper is known and beloved.
+                    The past decade has made the Institute's mission more important than ever. New Federal mandates of racial integration and mental health treatment have tested our nation's founding Christian principles, and communism has continued its unstoppable spread overseas.
+                </p>
+                <br>
+                <p class="section-body">
+                    Today the Institute is America's greatest bastion of anti-communist teaching. Dozens of students from countless denominations across the country attend each summer to learn from an insider how to face the communist menace.
                 </p>
             </div>
             <div class="story-image-wrap">
-                <div class="story-image">
-                    <span class="story-image-caption">The original Cedarbrook lodge, ca. 1989</span>
+                <div class="story-image" style="background: none; padding: 0; display: block;">
+                    <img src="lodge.png" alt="The original Institute lodge" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block;">
+                    <span class="story-image-caption" style="display: block; padding: .75rem 1rem 0;">The original Institute lodge, ca. 1926</span>
                 </div>
                 <div class="story-badge">
-                    <span class="year">37</span>
+                    <span class="year">19</span>
                     years of<br>ministry
                 </div>
             </div>
@@ -466,39 +476,29 @@
 <!-- ── VALUES ── -->
 <section class="values-section">
     <div class="container">
-        <p class="section-label">What We Believe</p>
-        <h2 class="section-title">The Values That Shape Everything We Do</h2>
+        <p class="section-label">Values</p>
+        <h2 class="section-title">In This Camp, We Believe:</h2>
 
         <div class="values-grid">
             <div class="value-card">
-                <div class="value-icon">✝</div>
-                <h3>Grounded in Scripture</h3>
-                <p>Every program, conversation, and campfire is shaped by the story of a God who pursues and redeems. We take the text seriously — and we take campers' questions just as seriously.</p>
+                <div class="value-icon">🇺🇸</div>
+                <h3>America is a Christian Nation</h3>
+                <p>We hold that the Constitution of the United States is divinely inspired, and that attacks on it are an attack on Christendom. Our founders were devoutly religious, and we continue their work today.</p>
             </div>
             <div class="value-card">
-                <div class="value-icon">🌲</div>
-                <h3>Creation as Classroom</h3>
-                <p>The woods have always been a place of encounter. We believe getting outside — off screens, into rivers and trees — is itself a spiritual practice, not just a nice add-on.</p>
+                <div class="value-icon">💵</div>
+                <h3>Communism Must Be Destroyed</h3>
+                <p>Our nation must spare no expense in stopping the spread of communism at home and abroad. Communism is incompatible with Christianity.</p>
             </div>
             <div class="value-card">
-                <div class="value-icon">🤝</div>
-                <h3>Radical Welcome</h3>
-                <p>Cedarbrook is a place where every camper belongs before they've done a single thing to earn it. We work hard to build a community that reflects the breadth of Christ's welcome.</p>
+                <div class="value-icon">🙏🏻</div>
+                <h3>Prayer Heals</h3>
+                <p>We defend traditional healing practices against Communist "psychiatrists" who would seek to lock our countrymen up in mental health institutions. SOTC is a space safe from the all-knowing eyes of the federal mental health machine.</p>
             </div>
             <div class="value-card">
-                <div class="value-icon">🔥</div>
-                <h3>Honest Faith</h3>
-                <p>We have no interest in a faith that only holds up when life is easy. We make room for doubt, grief, and hard questions — because we believe those are the doorways to deeper belief.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🌱</div>
-                <h3>Whole-Person Formation</h3>
-                <p>Discipleship isn't only about Sunday mornings. We invest in body, mind, and spirit — through challenge courses, creative arts, service projects, and reflective practice.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">🏕️</div>
-                <h3>The Long Game</h3>
-                <p>A week at camp isn't the destination — it's a catalyst. We partner with churches and families to make sure what starts at Cedarbrook keeps growing back home.</p>
+                <div class="value-icon">🤝🏻</div>
+                <h3>The Church Must Unite</h3>
+                <p>Theological disagreements are a distraction from the fight against Communism. We must include all Christians, even Catholics, in God's cause.</p>
             </div>
         </div>
     </div>
@@ -508,55 +508,53 @@
 <div class="stats-strip">
     <div class="stats-grid">
         <div>
-            <div class="stat-num">1,200+</div>
-            <div class="stat-label">Campers Each Summer</div>
+            <div class="stat-num">only $50</div>
+            <div class="stat-label">covers Room, Board, and Tuition in any of</div>
         </div>
         <div>
-            <div class="stat-num">140</div>
-            <div class="stat-label">Summer Staff</div>
-        </div>
-        <div>
-            <div class="stat-num">37</div>
-            <div class="stat-label">Years of Ministry</div>
-        </div>
-        <div>
-            <div class="stat-num">40</div>
-            <div class="stat-label">Acres of Forest</div>
+            <div class="stat-num">8</div>
+            <div class="stat-label">Modern and Comfortable Log Dorms</div>
         </div>
     </div>
 </div>
 
-<!-- ── TEAM ── -->
+<!-- ── CURRICULUM ── -->
 <section>
     <div class="container">
-        <p class="section-label">Our Leadership</p>
-        <h2 class="section-title">The People Behind the Ministry</h2>
-        <p class="section-body">Our full-time staff bring decades of combined experience in youth ministry, outdoor education, and pastoral care.</p>
+        <p class="section-label">Curriculum</p>
+        <h2 class="section-title">What We Teach</h2>
+        <p class="section-body">Each session of the Institute combines biblical instruction with practical training. The courses below are offered every summer and are required of all enrolled campers. Instruction is led by qualified Christian educators, veterans, and subject-matter experts.</p>
 
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-avatar">RO</div>
-                <div class="team-name">Rev. Ruth Osei</div>
-                <div class="team-role">Executive Director</div>
-                <p class="team-bio">Ruth co-founded Cedarbrook in 1987. She holds a D.Min from Fuller Seminary and is an ordained minister in the PCUSA. She still leads cabin devotions every Thursday night.</p>
+        <div class="values-grid-3" style="margin-top: 3rem;">
+            <div class="value-card">
+                <div class="value-icon">🏫</div>
+                <h3>Communism in Our Schools</h3>
+                <p>"With dissension and riots reaching from coast to coast on the campuses of our universities, colleges and high schools, and with sex education becoming the order of the day even in the elementary schools, a crisis is rapidly shaping up in our nation. As Lenin once said, 'demoralize the youth of the land and the revolution is already won.' We are seeing his prophecy being fulfilled before our very eyes." At SOTC, we teach how to save America's children from this propaganda and foreign influence.</p>
             </div>
-            <div class="team-card">
-                <div class="team-avatar alt">MW</div>
-                <div class="team-name">Marcus Webb</div>
-                <div class="team-role">Program Director</div>
-                <p class="team-bio">Marcus oversees all summer programming and staff training. He spent eight years leading urban youth ministry in Portland before joining Cedarbrook full-time.</p>
+            <div class="value-card">
+                <div class="value-icon">🌐</div>
+                <h3>World Government</h3>
+                <p>"Today-our Constitution and way of life are under attack by a Satanic world force which seeks to destroy our sovereignty and to make us part of a World Government which would truly usher in a reign of the anti-Christ. The Constitution of the World Government has already been drafted and is at the Center for the Study of Democratic Institutions in Santa Barbara, California." In our classes, we confront this threat head-on.</p>
             </div>
-            <div class="team-card">
-                <div class="team-avatar">JL</div>
-                <div class="team-name">Jess Lindqvist</div>
-                <div class="team-role">Spiritual Formation</div>
-                <p class="team-bio">Jess designs the teaching curriculum and trains small-group leaders. She is a graduate of Regent College and an avid backcountry skier.</p>
+            <div class="value-card">
+                <div class="value-icon">✝</div>
+                <h3>Bible vs. Communism</h3>
+                <p>Proof that the Bible does not support the claims of Atheist and Communist preachers. By contrasting the Bible with Communist teachings, you will learn how to put the lie to liberal foes at your church.</p>
             </div>
-            <div class="team-card">
-                <div class="team-avatar alt">DM</div>
-                <div class="team-name">David Muñoz</div>
-                <div class="team-role">Outdoor Education</div>
-                <p class="team-bio">David is a Wilderness First Responder and Leave No Trace Master Educator. He manages all adventure programming and keeps the climbing wall from falling down.</p>
+            <div class="value-card">
+                <div class="value-icon">📖</div>
+                <h3>The History, Philosophy, and Strategy of Socialism and Communism</h3>
+                <p>An overview of the history of Socialism and Communism, followed by a deep dive into their goals and methods. This course is directly informed by the experiences and inside knowledge of our founder, Kenneth Goff. You won't learn this anywhere else.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌲</div>
+                <h3>Survival and Christian Resistance</h3>
+                <p>"A study is made o£ the essentials of personal and group storage of food, clothing and shelter materials, and a program of Christian survival is discussed for local application."</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🥋</div>
+                <h3>Judo – Karate</h3>
+                <p>"The ability to ... personally have been able to defend themselves might have saved the lives of thousands of victims of the onslaught of World Communism. Being prepared spiritually, mentally, and physically is of paramount importance for the days ahead. This course includes ... regrouping of Christian resistance forces and retaliation if and when the times necessitate it."</p>
             </div>
         </div>
     </div>
@@ -565,25 +563,25 @@
 <!-- ── CTA ── -->
 <section class="cta-section" id="register">
     <div class="container">
-        <p class="section-label">Summer 2025</p>
-        <h2 class="section-title">Ready to Find Your People?</h2>
-        <p class="section-body">Sessions run June 15 – August 10. Spots fill quickly. Financial assistance is available — no one is turned away for inability to pay.</p>
-        <a href="#" class="btn btn-primary">Register for Summer 2025</a>
+        <p class="section-label">Summer 1969</p>
+        <h2 class="section-title">Ready to Find Your Place?</h2>
+        <p class="section-body">Sessions run June 15 – August 17. Spots fill quickly. Financial assistance is available.</p>
+        <a href="#" class="btn btn-primary">Register for Summer 1969</a>
         <a href="#" class="btn btn-outline">Contact Us</a>
     </div>
 </section>
 
 <!-- ── FOOTER ── -->
 <footer>
-    <div class="footer-logo">✝ Camp Cedarbrook</div>
-    <p style="margin-bottom:.75rem;">22400 Cedarbrook Road · Gates, OR 97346 · (503) 555-0142</p>
+    <div class="footer-logo">✝ Soldiers of the Cross Training Institute</div>
+    <p style="margin-bottom:.75rem;">P.O. Box 116 · Englewood, CO 80110 · (303) 674-4222</p>
     <div>
         <a href="#">Privacy</a>
         <a href="#">Accessibility</a>
         <a href="#">Donate</a>
         <a href="#">Staff Portal</a>
     </div>
-    <p style="margin-top:1.25rem; font-size:.72rem;">© 2025 Camp Cedarbrook Ministries. A registered 501(c)(3) nonprofit.</p>
+    <p style="margin-top:1.25rem; font-size:.72rem;">© 1969 Soldiers of the Cross Training Institute. This is a parody site created for educational purposes. Not a real organization.</p>
 </footer>
 
 </body>
